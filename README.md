@@ -9,7 +9,7 @@ GitHub Profile Lookup is a webpage where you can search for GitHub users and vie
 This project exists thanks to all the people who contribute. We welcome contributions from everyone who is interested in improving this project.
 
 <!-- Add more contributor profiles below following the same format -->
-<!-- Paste the url with username https://github.com/<github-profile-username>.png?size=50 -->
+<!-- Paste the url with username "https://github.com/<github-profile-username>.png?size=50" then add here -->
 [<img src="https://avatars.githubusercontent.com/u/84774437?s=50&v=4" alt="JubairRahman" />](https://github.com/JubairRahman) [<img src="https://avatars.githubusercontent.com/u/37423278?s=50&v=4" alt="polakDas" />](https://github.com/polakDas)
 
 ![GitHub contributors](https://img.shields.io/github/contributors/JubairRahman/Search-Git-Profile)
@@ -22,7 +22,7 @@ This project exists thanks to all the people who contribute. We welcome contribu
 
 ## Live Demo
 
-Try the live demo [here](https://jubairrahman.github.io/Search-Git_profile/).
+Try the live demo [here](https://jubairrahman.github.io/Search-Git-Profile/).
 
 ## Tech Stack
 
@@ -30,7 +30,7 @@ This project is built using HTML, CSS, and JavaScript. It uses the [Axios](https
 
 ## Installation
 
-1. Clone the repository: `git clone <repo-url> <!-- Replace with your repo URL -->`
+1. Clone the repository: `git clone https://github.com/JubairRahman/Search-Git-Profile.git`
 2. Open `index.html` in your browser.
 
 ## Usage
@@ -49,4 +49,4 @@ Contributions are welcome and highly appreciated! Pull requests are an excellent
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/JubairRahman/Login-automation-cypress/blob/d3e41fcd6d8af6b587d00727e53999e725fd2cab/LICENSE)
