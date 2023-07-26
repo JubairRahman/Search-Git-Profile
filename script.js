@@ -10,6 +10,7 @@ async function getUser(username) {
 
         createUserCard(data)
         getRepos(username)
+        getGists(username)
     } catch(err) {
         if(err.response.status == 404) {
             createErrorCard('No profile with this username')
@@ -27,16 +28,28 @@ async function getRepos(username) {
     }
 }
 
+async function getGists(username) {
+    try {
+        const { data } = await axios(APIURL + username + '/gists?sort=created')
+
+        addGistsToCard(data)
+    } catch(err) {
+        createErrorCard('Problem fetching gists')
+    }
+}
+
 function createUserCard(user) {
     const userID = user.name || user.login
     const userBio = user.bio ? `<p>${user.bio}</p>` : ''
     const cardHTML = `
     <div class="card">
-    <div>
+    <div class="avatar-container">
       <img src="${user.avatar_url}" alt="${user.name}" class="avatar">
     </div>
     <div class="user-info">
-      <h2>${userID}</h2>
+      <div>
+      <h2>${userID} <span style="font-size: 8px">from ${user.location}</span></h2>
+      </div>
       ${userBio}
       <ul>
         <li>${user.followers} <strong>Followers</strong></li>
@@ -44,7 +57,11 @@ function createUserCard(user) {
         <li>${user.public_repos} <strong>Repos</strong></li>
       </ul>
 
+      <h3>Repositories</h3>
       <div id="repos"></div>
+
+      <h3>Gists</h3>
+      <div id="gists"></div>
     </div>
   </div>
     `
@@ -75,6 +92,22 @@ function addReposToCard(repos) {
             repoEl.innerText = repo.name
 
             reposEl.appendChild(repoEl)
+        })
+}
+
+function addGistsToCard(gists) {
+    const gistsEl = document.getElementById('gists')
+
+    console.log(gists)
+    gists
+        .slice(0, 5)
+        .forEach(gist => {
+            const gistEl = document.createElement('a')
+            gistEl.classList.add('gist')
+            gistEl.href = gist.html_url
+            gistEl.target = '_blank'
+            gistEl.innerText = Object.keys(gist.files)
+            gistsEl.appendChild(gistEl)
         })
 }
 
